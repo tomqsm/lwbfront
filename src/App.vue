@@ -1,29 +1,46 @@
 <template>
-  <div id="app">
-    <NavBar></NavBar>
-    <Toggled></Toggled>
-    <router-view />
-    <b-container class="bv-example-row">
-      <b-row>
-        <b-col>1 of 3</b-col>
-        <b-col>2 of 3</b-col>
-        <b-col>3 of 3</b-col>
-      </b-row>
-    </b-container>
-    <CookieNotice></CookieNotice>
-  </div>
+  <component :is="layout">
+    <template v-slot:navbar>
+      <NavBar />
+    </template>
+
+    <router-view :layout.sync="layout" />
+  </component>
 </template>
+
 <script>
 import NavBar from "@/components/NavBar";
-import Toggled from "@/components/Toggled";
-import CookieNotice from "@/components/CookieNotice";
 export default {
+  name: "App",
   components: {
-    NavBar,
-    Toggled,
-    CookieNotice
+    NavBar
+  },
+  data() {
+    return {
+      layout: `div`
+    };
+  },
+  created() {
+    this.$store.dispatch("tryAutoLogin");
   }
 };
 </script>
-<style>
+
+<style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  line-height: 1.6;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+p {
+  &:not(:first-child) {
+    margin-top: 1.25em;
+  }
+}
 </style>
