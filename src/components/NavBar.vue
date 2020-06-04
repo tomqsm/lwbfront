@@ -1,18 +1,13 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="primary">
-      <b-navbar-brand to="/" class type="light">letsweb.biz</b-navbar-brand>
-
+    <b-navbar toggleable="lg" type="light" variant="light">
+      <b-navbar-brand to="/" class type="light">
+      <img src="logo.svg" style="width: 30px; margin-right: 5px;" alt="logo">letsweb.biz</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <router-link
-            tag="b-nav-item"
-            :to="{name: 'Home'}"
-            active-class="active"
-            exact
-          >Home</router-link>
+          <router-link tag="b-nav-item" :to="{name: 'Home'}" active-class="active" exact>Home</router-link>
           <router-link tag="b-nav-item" :to="{name: 'About'}" active-class="active">About</router-link>
           <router-link tag="b-nav-item" :to="{name: 'Users'}" active-class="active">Users</router-link>
           <router-link
@@ -25,7 +20,7 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown right v-if="!isAuthenticated">
+          <b-nav-item-dropdown right v-if="false && !isAuthenticated">
             <!-- Using 'button-content' slot -->
             <template v-slot:button-content>
               <em>User</em>
@@ -66,29 +61,7 @@ export default {
 
 <style scoped>
 .active {
-  background-color: orange;
-}
-/* RESPONSIVE ARROWS */
-[class^="arr-"] {
-  border: solid currentColor;
-  border-width: 0 0.3em 0.3em 0;
-  display: inline-block;
-  padding: 0.1em;
-}
-.arr-right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-.arr-left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-.arr-up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
-.arr-down {
-  transform: rotate(30deg);
-  -webkit-transform: rotate(30deg);
+  text-decoration: overline;
+  font-weight: bolder;
 }
 </style>

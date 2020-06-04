@@ -8,7 +8,7 @@ import LayoutDefault from '../layouts/LayoutDefault.vue';
 export default {
   name: 'About',
   created() {
-    this.$emit(`update:layout`, LayoutDefault);
+    this.$emit(`update:layout`, {layout: LayoutDefault, title: 'About'});
   },
 };
 </script>

@@ -36,12 +36,12 @@ const routes = [
   {
     path: '/users',
     name: 'Users',
-    component: () => import(/*webpackChunkName: "signin"*/ '../components/Users.vue')
+    component: () => import(/*webpackChunkName: "signin"*/ '../views/Users.vue')
   },
   {
     path: '/users/:id',
     name: 'UserEditLink',
-    component: () => import(/*webpackChunkName: "signin"*/ '../components/Users.vue')
+    component: () => import(/*webpackChunkName: "signin"*/ '../views/Users.vue')
   },
   {
     path: '/dashboard',

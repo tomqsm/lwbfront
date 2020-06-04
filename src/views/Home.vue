@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"></HelloWorld>
+    <HelloWorld msg="Welcome to Your Vue.js App">
+      
+    </HelloWorld>
     <Radio></Radio>
   </div>
 </template>
@@ -18,7 +20,7 @@ export default {
     Radio
   },
   created() {
-    this.$emit("update:layout", LayoutDefault);
+    this.$emit("update:layout", {layout: LayoutDefault, title: 'Home'});
   }
   // beforeRouteEnter(to, from,next){
   //   console.log('beforeroute home' + to, from)

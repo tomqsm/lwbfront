@@ -1,10 +1,13 @@
 <template>
-  <component :is="layout">
+  <component :is="data.layout">
     <template v-slot:navbar>
       <NavBar />
     </template>
+    <template v-slot:logobar>
+      <h1>{{data.title}}</h1>
+    </template>
 
-    <router-view :layout.sync="layout" />
+    <router-view :layout.sync="data" />
   </component>
 </template>
 
@@ -17,7 +20,10 @@ export default {
   },
   data() {
     return {
-      layout: `div`
+      data: {
+        layout: `div`,
+        title: "default"
+      }
     };
   },
   created() {

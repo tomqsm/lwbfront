@@ -4,6 +4,9 @@
       <slot name="navbar"></slot>
     </header>
     <b-container>
+      <slot name="logobar"></slot>
+    </b-container>
+    <b-container>
       <main class="layoutDefaultMain">
         <slot />
       </main>
