@@ -52,9 +52,9 @@ export default new Vuex.Store({
         }).catch(error => console.log(error));
     },
     signIn({ commit, dispatch }, authData) {
-      axiosAuth
+      axios
         .post(
-          ":signInWithPassword?key=" + process.env.VUE_APP_FIREBASE_API_KEY,
+          process.env.VUE_APP_SIGNIN_ENDPOINT,
           {
             email: authData.email,
             password: authData.password,

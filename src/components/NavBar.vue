@@ -2,7 +2,8 @@
   <div>
     <b-navbar toggleable="lg" type="light" variant="light">
       <b-navbar-brand to="/" class type="light">
-      <img src="logo.svg" style="width: 30px; margin-right: 5px;" alt="logo">letsweb.biz</b-navbar-brand>
+        <img src="logo.svg" style="width: 30px; margin-right: 5px;" alt="logo" />letsweb.biz
+      </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
@@ -27,8 +28,8 @@
             </template>
 
             <router-link tag="b-dropdown-item" :to="{name: 'SignUp'}" v-if="!isAuthenticated">SignUp</router-link>
-            <router-link tag="b-dropdown-item" :to="{name: 'SignIn'}" v-if="!isAuthenticated">SignIn</router-link>
           </b-nav-item-dropdown>
+          <router-link tag="b-dropdown-item" :to="{name: 'signin'}" v-if="!isAuthenticated" active-class="active">SignIn</router-link>
           <span id="authenticatedUserAvatar">
             <b-avatar v-if="isAuthenticated"></b-avatar>
           </span>

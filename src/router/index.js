@@ -30,23 +30,23 @@ const routes = [
   },
   {
     path: '/signin',
-    name: 'SignIn',
-    component: () => import(/*webpackChunkName: "signin"*/ '../components/auth/signin.vue')
+    name: 'signin',
+    component: () => import(/*webpackChunkName: "signin"*/ '../views/signin.vue')
   },
   {
     path: '/users',
     name: 'Users',
-    component: () => import(/*webpackChunkName: "signin"*/ '../views/Users.vue')
+    component: () => import(/*webpackChunkName: "users"*/ '../views/Users.vue')
   },
   {
     path: '/users/:id',
     name: 'UserEditLink',
-    component: () => import(/*webpackChunkName: "signin"*/ '../views/Users.vue')
+    component: () => import(/*webpackChunkName: "users"*/ '../views/Users.vue')
   },
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import(/*webpackChunkName: "signin"*/ '../components/Dashboard.vue'),
+    component: () => import(/*webpackChunkName: "dashboard"*/ '../components/Dashboard.vue'),
     beforeEnter(to, from, next) {
       if (store.getters.isAuthenticated) {
         next()

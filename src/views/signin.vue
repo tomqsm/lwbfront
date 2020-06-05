@@ -1,5 +1,6 @@
 <template>
   <div id="signin">
+    <p>Available for preregistered cumstomers.</p>
     <div class="signin-form">
       <form @submit.prevent="onSubmit">
         <div class="input">
@@ -19,7 +20,11 @@
 </template>
 
 <script>
+import LayoutDefault from "../layouts/LayoutDefault.vue";
+
 export default {
+  name: "signin",
+
   data() {
     return {
       email: "",
@@ -32,10 +37,16 @@ export default {
         email: this.email,
         password: this.password
       };
-      
+
       console.log(formData);
-      this.$store.dispatch('signIn', {email: formData.email, password: formData.password})
+      this.$store.dispatch("signIn", {
+        email: formData.email,
+        password: formData.password
+      });
     }
+  },
+  created() {
+    this.$emit(`update:layout`, { layout: LayoutDefault, title: "Signin" });
   }
 };
 </script>
