@@ -2,15 +2,24 @@
   <div>
     <b-navbar toggleable="lg" type="light" variant="light">
       <b-navbar-brand to="/" class type="light">
-        <img src="logo.svg" style="width: 30px; margin-right: 5px;" alt="logo" />letsweb.biz
+        <img src="/img/logo.svg" style="width: 30px; margin-right: 5px;" alt="logo" />letsweb.biz
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <router-link tag="b-nav-item" :to="{name: 'Home'}" active-class="active" exact>Home</router-link>
-          <router-link tag="b-nav-item" :to="{name: 'About'}" active-class="active">About</router-link>
-          <router-link tag="b-nav-item" :to="{name: 'Users'}" active-class="active">Users</router-link>
+          <router-link
+            tag="b-nav-item"
+            :to="{name: 'Home'}"
+            active-class="active"
+            exact
+          >{{this.$t("homePage.title")}}</router-link>
+          <router-link
+            tag="b-nav-item"
+            :to="{name: 'About'}"
+            active-class="active"
+          >{{this.$t("aboutPage.title")}}</router-link>
+          <!-- <router-link tag="b-nav-item" :to="{name: 'Users'}" active-class="active">Users</router-link> -->
           <router-link
             tag="b-nav-item"
             :to="{name: 'Dashboard'}"
@@ -29,7 +38,12 @@
 
             <router-link tag="b-dropdown-item" :to="{name: 'SignUp'}" v-if="!isAuthenticated">SignUp</router-link>
           </b-nav-item-dropdown>
-          <router-link tag="b-dropdown-item" :to="{name: 'signin'}" v-if="!isAuthenticated" active-class="active">SignIn</router-link>
+          <router-link
+            tag="b-dropdown-item"
+            :to="{name: 'signin'}"
+            v-if="!isAuthenticated"
+            active-class="active"
+          >{{this.$t('signin.title')}}</router-link>
           <span id="authenticatedUserAvatar">
             <b-avatar v-if="isAuthenticated"></b-avatar>
           </span>

@@ -3,16 +3,16 @@
     <header>
       <slot name="navbar"></slot>
     </header>
-    <b-container>
+    <b-container id="logobar">
       <slot name="logobar"></slot>
     </b-container>
-    <b-container>
+    <b-container fluid="sm">
       <main class="layoutDefaultMain">
         <slot />
       </main>
       <footer class="LayoutDefaultFooter">
-        <br>
-        <hr>
+        <br />
+        <hr />
         <slot name="footer">&copy; letsweb.biz {{currentYear}}</slot>
       </footer>
     </b-container>
@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     currentYear: () => {
-      return new Date().getFullYear()
+      return new Date().getFullYear();
     }
   },
   created() {}
@@ -38,9 +38,10 @@ export default {
 </script>
 
 <style scoped>
-
-.layoutDefaultMain{
+#logobar {
+  margin-top: 15px;
+}
+.layoutDefaultMain {
   padding-top: 15px;
 }
-
 </style>

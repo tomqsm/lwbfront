@@ -1,0 +1,27 @@
+{
+  "message": "hello i18n !!",
+  "homePage": {
+    "title": "Start"
+  },
+  "aboutPage": {
+    "title": "Info"
+  },
+  "signin": {
+    "title": "Logowanie",
+    "availability": "Dostępne dla zarejestrowanych użytkowników.",
+    "email": "E-mail",
+    "password": "Hasło",
+    "submitBtn": "Wyślij"
+  },
+  "carousel": {
+    "slide1": {
+      "caption": "Obsługa startup'ów",
+      "text1": "Obsługa startup'ów: własny adres internetowy (domena), strona internetowa, skrzynka e-mail wraz z zarządzaniem użytkownikami i dyskiem chmurowym w oparciu o infrastrukturę Google.",
+      "text2": "Szkolenie umożliwiające niezależna obsługę."
+    },
+    "slide2": {
+      "caption": "Programowanie",
+      "text1": "Backend: Java > Spring, Cloud > GCP, Digitalocean. Fontend: Vuejs"
+    }
+  }
+}

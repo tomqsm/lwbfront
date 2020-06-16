@@ -12,6 +12,7 @@ export default new Vuex.Store({
     email: null,
     formData: null,
     users: 'Loading...',
+    loginFailed: null
   },
   mutations: {
     authUser(state, userData) {
@@ -19,7 +20,6 @@ export default new Vuex.Store({
       state.idToken = userData.idToken
     },
     setUsers(state, users1) {
-      console.log('SEETING', users1)
       state.users = users1
     },
     removeUserMut(state) {
@@ -27,6 +27,12 @@ export default new Vuex.Store({
     },
     clearAuthData(state) {
       state.idToken = null
+    },
+    markLoginFailure(state){
+      state.loginFailed = true
+    },
+    unmarkLoginFailure(state){
+      state.loginFailed = false
     }
   },
   actions: {
@@ -52,6 +58,7 @@ export default new Vuex.Store({
         }).catch(error => console.log(error));
     },
     signIn({ commit, dispatch }, authData) {
+      commit('unmarkLoginFailure')
       axios
         .post(
           process.env.VUE_APP_SIGNIN_ENDPOINT,
@@ -62,7 +69,6 @@ export default new Vuex.Store({
           }
         )
         .then(res => {
-          console.log(res)
           commit('authUser', {
             idToken: res.data.idToken,
             email: res.data.email
@@ -74,11 +80,13 @@ export default new Vuex.Store({
           localStorage.setItem('expiresOn', expiresOn)
           router.push({ name: 'Dashboard' })
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          console.log(`XX login failed: ${error}`)
+          commit('markLoginFailure')
+        });
     },
     tryAutoLogin({ commit }) {
       const idToken = localStorage.getItem('idToken')
-      console.log(`from local storage ${idToken}`)
       if (idToken) {
         const expiresOn = localStorage.getItem('expiresOn')
         const hasExpired = new Date() > expiresOn
@@ -159,6 +167,9 @@ export default new Vuex.Store({
     },
     authUser: (state) => {
       return state.email
+    },
+    loginFailed: (state) => {
+      return state.loginFailed
     }
   },
   modules: {

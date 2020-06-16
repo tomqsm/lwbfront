@@ -1,0 +1,26 @@
+{
+  "message": "xx hello i18n !!",
+  "homePage": {
+    "title": "Home"
+  },
+  "aboutPage": {
+    "title": "About"
+  },
+  "signin": {
+    "title": "Sign In",
+    "availability": "Available for pre-registered customers only.",
+    "email": "E-mail",
+    "password": "Password",
+    "submitBtn": "Submit"
+  },
+  "carousel": {
+    "slide1": {
+      "caption": "Servicing startups",
+      "text1": "Own internet address (domain), website, email box with users management and cloud storage in Google infrastructure."
+    },
+    "slide2": {
+      "caption": "Programming",
+      "text1": "Backend: Java > Spring, Cloud > GCP, Digitalocean. Fontend: Vuejs"
+    }
+  }
+}
